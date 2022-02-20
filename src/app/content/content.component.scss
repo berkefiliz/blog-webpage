@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Oxygen&family=Righteous&display=swap");
+
+.div-post-content {
+  padding: 40px;
+  background-color: #1b1d1e;
+  height: 60vh;
+  overflow-y: auto;
+
+  h1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    user-select: none;
+    color: #e4e4e4;
+    line-height: 36px;
+  }
+
+  h2 {
+    padding-top: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    user-select: none;
+    color: #c5c4c4;
+    line-height: 36px;
+  }
+
+  p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    user-select: none;
+    color: #a9a9a9;
+    line-height: 36px;
+  }
+
+  li {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    user-select: none;
+    color: #a9a9a9;
+    line-height: 36px;
+    padding-left: 50px;
+    list-style-type: none;
+  }
+}
+
+.div-post-content p:first-child::first-letter {
+  font-weight: bold;
+  font-size: 66px;
+  float: left;
+  line-height: 60px;
+  padding-right: 10px;
+  margin-top: 12px;
+  color: #c5c4c4;
+}
+
+a {
+  text-decoration: none;
+  $color: #6f74ff;
+  span {
+    color: $color;
+    background-image: linear-gradient(transparent calc(99.9% - 3px), $color);
+    background-size: 0;
+    background-repeat: no-repeat;
+    display: inline;
+    transition: 0.5s ease;
+  }
+
+  &:hover {
+    span {
+      background-size: 100%;
+    }
+  }
+}
