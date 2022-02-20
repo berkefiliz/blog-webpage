@@ -23,6 +23,6 @@
   <div *ngFor="let post of POSTS" [routerLink]="['/post', make_url(post.name)]" class="div-post">
     <div class="date">{{post.date}}</div>
     <div class="name">{{post.name}}</div>
-    <div class="tags">{{post.tags}}</div>
+    <div class="tags">{{make_taglist(post.tags)}}</div>
   </div>
 </div>

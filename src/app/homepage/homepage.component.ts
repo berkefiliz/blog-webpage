@@ -18,4 +18,8 @@ export class HomepageComponent implements OnInit {
   make_url(input: string): string {
     return encodeURI(input)
   }
+
+  make_taglist(tags: string[]): string {
+    return tags.join(" ⚹ ") 
+  }
 }
