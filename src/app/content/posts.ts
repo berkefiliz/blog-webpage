@@ -44,7 +44,7 @@ export var TEXTS_RAW = {
   place1: `
     <p>No content over here! After I complete my experimentation about styling and
     backend, these will be actual posts. Currently the only remotely interesting
-    post is <a href="http://blog.berkefiliz.com/post/Styling%2520Test"
+    post is <a href="blog.berkefiliz.com/post/Styling%2520Test"
     ><span>the styling test</span></a
     >. Go check it out! If you want to, that is.</p>
   `,
@@ -52,7 +52,7 @@ export var TEXTS_RAW = {
     <p>No content over here either! I am running out of ideas to keep the variety
     in text without actually writing about anything. Oh well, maybe you should go
     and take a walk. Repeat the process until this page is ready. Even better, go
-    check out <a href="http://blog.berkefiliz.com/post/Styling%2520Test"
+    check out <a href="blog.berkefiliz.com/post/Styling%2520Test"
     ><span>the styling test</span></a
     > and send me some feedback. How does that sound?</p>
   `,

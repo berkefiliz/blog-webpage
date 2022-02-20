@@ -6,6 +6,7 @@ import { ContentComponent } from './content/content.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
+  { path: 'post', component: ContentComponent },
   { path: 'post/:id', component: ContentComponent }
 ];
 
