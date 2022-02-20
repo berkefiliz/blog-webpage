@@ -44,16 +44,19 @@ export var TEXTS_RAW = {
   place1: `
     <p>No content over here! After I complete my experimentation about styling and
     backend, these will be actual posts. Currently the only remotely interesting
-    post is <a href="blog.berkefiliz.com/post/Styling%2520Test"
-    ><span>the styling test</span></a
-    >. Go check it out! If you want to, that is.</p>
+    post is the styling test. (Links are not working and I do not have a button to
+    go back yet, so click on the gray area up there to go back.) If you don't want
+    that, I totally understand. Have a fun song before you go though! This one is
+    called <a href="https://www.youtube.com/watch?v=3fUdqWyXbmk"
+    ><span>Particle Man</span></a
+    > by They Might Be Giants.</p>
   `,
   place2: `
     <p>No content over here either! I am running out of ideas to keep the variety
     in text without actually writing about anything. Oh well, maybe you should go
     and take a walk. Repeat the process until this page is ready. Even better, go
-    check out <a href="blog.berkefiliz.com/post/Styling%2520Test"
-    ><span>the styling test</span></a
-    > and send me some feedback. How does that sound?</p>
+    check out the styling test and send me some feedback. (Links are not working
+    and I do not have a button to go back yet, so click on the gray area up there
+    to go back.)</p>
   `,
 };

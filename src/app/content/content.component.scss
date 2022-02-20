@@ -1,10 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Oxygen&family=Righteous&display=swap");
 
+.div-content-header {
+  background-color: #222426;
+  padding: 40px 40px 20px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 30px;
+  cursor: pointer;
+  h1 {
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+      sans-serif;
+    font-size: 26px;
+    user-select: none;
+    color: #a8a095;
+    padding-bottom: 6px;
+  }
+  .title {
+    flex: 1;
+  }
+  .div-button {
+    height: 100%;
+    width: 40px;
+    padding-top: 2px;
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    .icon {
+      color: #a8a095;
+      font-size: 24px;
+      transition: all 0.1s ease-in-out;
+    }
+  }
+  .div-button:hover {
+    .icon {
+      color: #fff;
+    }
+  }
+}
+
 .div-post-content {
   padding: 40px;
   background-color: #1b1d1e;
   height: 60vh;
   overflow-y: auto;
+  padding-bottom: 80px;
 
   h1 {
     font-family: "Open Sans", sans-serif;

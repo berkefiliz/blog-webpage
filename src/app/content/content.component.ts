@@ -5,6 +5,9 @@ import { Post, POST_DATABASE } from '../post-directory';
 
 import { TEXTS_RAW } from './posts';
 
+import { faBackward, faShareNodes } from '@fortawesome/free-solid-svg-icons';
+
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -12,15 +15,21 @@ import { TEXTS_RAW } from './posts';
   encapsulation: ViewEncapsulation.None,
 })
 export class ContentComponent implements OnInit {
-  constructor(private _Activatedroute: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {}
 
   post_title: any;
   TEXTS: any;
 
+  // Icons
+  faBackward = faBackward;
+  faShareNodes = faShareNodes;
+
   ngOnInit(): void {
-    let raw_url = this._Activatedroute.snapshot.paramMap.get('id');
-    this.post_title = decodeURI(raw_url ? raw_url : '');
     this.TEXTS = TEXTS_RAW;
+
+    this.route.queryParams.subscribe((params) => {
+      this.post_title = decodeURI(params['title']);
+    });
   }
 
   findPostByTitle(title: string): Post {
