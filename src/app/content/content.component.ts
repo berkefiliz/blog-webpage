@@ -2,11 +2,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Post, POST_DATABASE } from '../post-directory';
-
 import { TEXTS_RAW } from './posts';
 
 import { faBackward, faShareNodes } from '@fortawesome/free-solid-svg-icons';
-
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-content',
@@ -15,10 +14,14 @@ import { faBackward, faShareNodes } from '@fortawesome/free-solid-svg-icons';
   encapsulation: ViewEncapsulation.None,
 })
 export class ContentComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private clipboardApi: ClipboardService
+  ) {}
 
   post_title: any;
   TEXTS: any;
+  copied: boolean = false;
 
   // Icons
   faBackward = faBackward;
@@ -36,5 +39,18 @@ export class ContentComponent implements OnInit {
     return POST_DATABASE.filter(function (p) {
       return p.name == title;
     })[0];
+  }
+
+  sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async copyLink(): Promise<void> {
+    this.copied = true;
+    this.clipboardApi.copyFromContent(
+      'http://blog.berkefiliz.com/post?title=' + encodeURI(this.post_title)
+    );
+    await new Promise(f => setTimeout(f, 2000));
+    this.copied = false;
   }
 }
