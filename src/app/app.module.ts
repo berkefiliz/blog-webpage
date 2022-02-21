@@ -10,6 +10,7 @@ import { ContentComponent } from './content/content.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ClipboardModule } from 'ngx-clipboard';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [AppComponent, HomepageComponent, ContentComponent],
@@ -19,6 +20,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     BrowserAnimationsModule,
     FontAwesomeModule,
     ClipboardModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -16,7 +16,7 @@ export class HomepageComponent implements OnInit {
   }
 
   make_url(input: string): string {
-    return encodeURI(input)
+    return encodeURIComponent(input)
   }
 
   make_taglist(tags: string[]): string {

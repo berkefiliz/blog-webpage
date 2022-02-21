@@ -13,7 +13,7 @@ p {
 #div-main {
   display: flex;
   flex-direction: row;
-  padding: 50px;
+  padding: 28px 50px;
   transition: padding 0.2s ease-in-out;
   height: calc(100vh - 100px);
   overflow-y: hidden;
@@ -33,7 +33,7 @@ p {
   h1 {
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
       sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     color: #c8c3bc;
     padding-bottom: 16px;
   }

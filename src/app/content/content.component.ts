@@ -4,8 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Post, POST_DATABASE } from '../post-directory';
 import { TEXTS_RAW } from './posts';
 
-import { faBackward, faShareNodes } from '@fortawesome/free-solid-svg-icons';
+import { faAsterisk, faBackward, faShareNodes } from '@fortawesome/free-solid-svg-icons';
 import { ClipboardService } from 'ngx-clipboard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content',
@@ -16,6 +17,7 @@ import { ClipboardService } from 'ngx-clipboard';
 export class ContentComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private clipboardApi: ClipboardService
   ) {}
 
@@ -26,12 +28,13 @@ export class ContentComponent implements OnInit {
   // Icons
   faBackward = faBackward;
   faShareNodes = faShareNodes;
+  faAsterisk = faAsterisk;
 
   ngOnInit(): void {
     this.TEXTS = TEXTS_RAW;
 
     this.route.queryParams.subscribe((params) => {
-      this.post_title = decodeURI(params['title']);
+      this.post_title = decodeURIComponent(params['title']);
     });
   }
 
@@ -41,14 +44,10 @@ export class ContentComponent implements OnInit {
     })[0];
   }
 
-  sleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
   async copyLink(): Promise<void> {
     this.copied = true;
     this.clipboardApi.copyFromContent(
-      'http://blog.berkefiliz.com/post?title=' + encodeURI(this.post_title)
+      "blog.berkefiliz.com" + this.router.url
     );
     await new Promise(f => setTimeout(f, 2000));
     this.copied = false;
