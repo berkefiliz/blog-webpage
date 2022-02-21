@@ -142,11 +142,15 @@ p {
   }
 
   #div-main {
-    padding: 40px 0;
+    padding: 10px 0;
   }
 
   #div-header {
     padding-left: 40px;
+    h1 {
+      font-size: 20px;
+      padding: 0;
+    }
   }
 
   .div-featured:hover {

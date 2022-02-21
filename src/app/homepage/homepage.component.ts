@@ -16,7 +16,7 @@ export class HomepageComponent implements OnInit {
   }
 
   make_url(input: string): string {
-    return encodeURIComponent(input)
+    return input.split(" ").join("_")
   }
 
   make_taglist(tags: string[]): string {
