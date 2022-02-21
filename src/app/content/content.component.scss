@@ -29,13 +29,13 @@
     .icon {
       color: #a8a095;
       font-size: 24px;
-      transition: all 0.1s ease-in-out;
+      transition: color 0.1s ease-in-out;
     }
     p {
       position: absolute;
       font-size: 12px;
-      margin-left: -22px;
       margin-top: -9px;
+      margin-left: -22px;
       color: #666;
       transition: opacity 0.2s ease-in-out;
     }
@@ -116,4 +116,12 @@ a {
       background-size: 100%;
     }
   }
+}
+
+@media screen and (max-width: 800px) {
+  .div-content-header {
+    background-color: #222426;
+    padding: 40px 40px 20px 40px;
+  }
+
 }

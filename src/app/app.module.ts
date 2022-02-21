@@ -23,7 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ClipboardModule,
     MatTooltipModule,
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

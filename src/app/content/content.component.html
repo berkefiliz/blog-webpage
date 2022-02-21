@@ -5,7 +5,9 @@
   <div
     class="div-button"
     matTooltip="{{ findPostByTitle(post_title).date }}"
+    #tooltip="matTooltip"
     [matTooltipPosition]="'before'"
+    (click)="tooltip.show()"
     *ngIf="post_title != 'Post not found!'"
   >
     <div class="button">
