@@ -1,4 +1,15 @@
-export var TEXTS_RAW = {
+export interface TextRaw {
+  [index: string]: string
+}
+
+export var TEXTS_RAW: TextRaw = {
+  notfound: `
+  <p>
+    Whoops! This post does not exist! Maybe the link is incorrect, maybe the post is
+    deleted... Look, it's wild out there. Who knows what happened? Your best bet is
+    to go back to the posts list and check another one out!
+  </p>
+  `,
   stylingtest: `
     <p>
       Welcome again! This post is designed to test some styling elements. Those

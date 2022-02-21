@@ -4,18 +4,22 @@
   </div>
   <div
     class="div-button"
-    routerLink=""
     matTooltip="{{ findPostByTitle(post_title).date }}"
     [matTooltipPosition]="'before'"
+    *ngIf="post_title != 'Post not found!'"
   >
     <div class="button">
       <fa-icon class="icon" [icon]="faAsterisk"></fa-icon>
     </div>
   </div>
-  <div class="div-button" (click)="copyLink()">
+  <div
+    class="div-button"
+    *ngIf="post_title != 'Post not found!'"
+    (click)="copyLink()"
+  >
     <div class="button">
       <fa-icon class="icon" [icon]="faShareNodes"></fa-icon>
-      <p *ngIf="copied">Link copied!</p>
+      <p [ngStyle]="{opacity: (copied ? 1 : 0)}">Link copied!</p>
     </div>
   </div>
   <div class="div-button" routerLink="">

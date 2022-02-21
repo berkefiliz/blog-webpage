@@ -20,7 +20,7 @@
 </div>
 <div class="div-posts">
   <div
-    *ngFor="let post of POSTS"
+    *ngFor="let post of POSTS.slice(1)"
     [routerLink]="['/post']"
     [queryParams]="{ title: make_url(post.name) }"
     class="div-post"

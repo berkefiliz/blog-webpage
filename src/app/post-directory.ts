@@ -7,6 +7,12 @@ export interface Post {
 
 export var POST_DATABASE: Post[] = [
   {
+    id: "notfound",
+    date: 'No date',
+    name: 'Post not found!',
+    tags: [],
+  },
+  {
     id: "stylingtest",
     date: '2022-02-22',
     name: 'Styling Test',

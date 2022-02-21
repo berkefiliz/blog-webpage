@@ -25,11 +25,23 @@ export class ContentComponent implements OnInit {
     private clipboardApi: ClipboardService
   ) {
     this.route.queryParams.subscribe((params) => {
-      this.post_title = params['title'].split("_").join(" ");
+      let error = 'Post not found!';
+      if (params['title']) {
+        this.post_title = params['title'].split('_').join(' ');
+        if (
+          this.findPostByTitle(this.post_title) == this.findPostByTitle(error)
+        ) {
+          this.post_title = error;
+        }
+      } else {
+        {
+          this.post_title = error;
+        }
+      }
     });
   }
 
-  post_title: any;
+  post_title: string = '';
   TEXTS: any;
   copied: boolean = false;
 
@@ -43,9 +55,10 @@ export class ContentComponent implements OnInit {
   }
 
   findPostByTitle(title: string): Post {
-    return POST_DATABASE.filter(function (p) {
+    let filtered: Post[] = POST_DATABASE.filter(function (p) {
       return p.name == title;
-    })[0];
+    });
+    return filtered.length > 0 ? filtered[0] : POST_DATABASE[0];
   }
 
   async copyLink(): Promise<void> {
