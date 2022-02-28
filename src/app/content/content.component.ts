@@ -43,7 +43,7 @@ export class ContentComponent implements OnInit {
 
   async copyLink(): Promise<void> {
     this.copied = true;
-    this.clipboardApi.copyFromContent('blog.berkefiliz.com' + this.router.url);
+    this.clipboardApi.copyFromContent('blog.berkefiliz.com/#' + this.router.url);
     await new Promise((f) => setTimeout(f, 2000));
     this.copied = false;
   }
