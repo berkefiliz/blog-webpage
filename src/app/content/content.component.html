@@ -1,14 +1,14 @@
 <div class="div-content-header">
   <div class="title">
-    <h1>{{ post_title }}</h1>
+    <h1>{{ POST[1] }}</h1>
   </div>
   <div
     class="div-button"
-    matTooltip="{{ findPostByTitle(post_title)[0] }}"
+    matTooltip="{{ POST[0] }}"
     #tooltip="matTooltip"
     [matTooltipPosition]="'before'"
     (click)="tooltip.show()"
-    *ngIf="post_title != 'Post not found!'"
+    *ngIf="POST[1] != 'Post not found!'"
   >
     <div class="button">
       <fa-icon class="icon" [icon]="faAsterisk"></fa-icon>
@@ -16,7 +16,7 @@
   </div>
   <div
     class="div-button"
-    *ngIf="post_title != 'Post not found!'"
+    *ngIf="POST[1] != 'Post not found!'"
     (click)="copyLink()"
   >
     <div class="button">
@@ -32,5 +32,5 @@
 </div>
 <div
   class="div-post-content"
-  [innerHtml]="findPostByTitle(post_title)[3]"
+  [innerHtml]="POST[3]"
 ></div>

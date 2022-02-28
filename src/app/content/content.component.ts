@@ -25,8 +25,6 @@ export class ContentComponent implements OnInit {
     private http: HttpClient
   ) {}
 
-  post_title: string = '';
-  POSTS: any[] = [];
   copied: boolean = false;
   file: any;
   text: any;
@@ -36,17 +34,11 @@ export class ContentComponent implements OnInit {
   faShareNodes = faShareNodes;
   faAsterisk = faAsterisk;
 
+  // Content
+  POST: string[] = ["N/A", "Loading...", "N/A", "<p>...</p>"];
+
   ngOnInit(): void {
     this.scrape();
-  }
-
-  findPostByTitle(title: string): any {
-    console.log(title);
-    let filtered: any = this.POSTS.filter(function (p) {
-      return p[1] == title;
-    });
-    console.log(filtered[0]);
-    return filtered.length > 0 ? filtered[0] : ["N/A", "Loading...", "N/A", "<p>...</p>"];
   }
 
   async copyLink(): Promise<void> {
@@ -69,17 +61,16 @@ export class ContentComponent implements OnInit {
         `https://sheets.googleapis.com/v4/spreadsheets/${this.doc}/values/${this.sht}!${this.rng}?key=${this.key}`
       )
       .subscribe((data) => {
-        this.POSTS = data.values;
-        console.log(this.POSTS);
-
+        let POSTS = data.values;
         this.route.queryParams.subscribe((params) => {
-          let error = 'Post not found!';
           if (params['title']) {
-            this.post_title = params['title'].split('_').join(' ');
+            let title = params['title'].split("_").join(" ")
+            let filtered: any = POSTS.filter(function (p: any) {
+              return p[1] == title;
+            });
+            this.POST = filtered.length > 0 ? filtered[0] : ["N/A", "Loading...", "N/A", "<p>...</p>"];
           } else {
-            {
-              this.post_title = error;
-            }
+            // Page not found
           }
         });
       });
