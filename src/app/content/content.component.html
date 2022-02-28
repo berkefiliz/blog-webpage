@@ -30,6 +30,11 @@
     </div>
   </div>
 </div>
+<mat-progress-bar 
+  mode="indeterminate"
+  *ngIf="POST[1] == 'Loading...'"
+  style="width: 100%;">
+</mat-progress-bar>
 <div
   class="div-post-content"
   [innerHtml]="POST[3]"

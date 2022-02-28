@@ -35,7 +35,7 @@ export class ContentComponent implements OnInit {
   faAsterisk = faAsterisk;
 
   // Content
-  POST: string[] = ["N/A", "Loading...", "N/A", "<p>...</p>"];
+  POST: string[] = ["...", "Loading...", "...", ""];
 
   ngOnInit(): void {
     this.scrape();
@@ -68,7 +68,7 @@ export class ContentComponent implements OnInit {
             let filtered: any = POSTS.filter(function (p: any) {
               return p[1] == title;
             });
-            this.POST = filtered.length > 0 ? filtered[0] : ["N/A", "Loading...", "N/A", "<p>...</p>"];
+            this.POST = filtered.length > 0 ? filtered[0] : ["N/A", "Post not found!", "N/A", "<p>This post does not seem to exist. Maybe the link was incorrect? Or maybe it got deleted by the time you clicked the link? The world is indeed full of wonders...</p>"];
           } else {
             // Page not found
           }
