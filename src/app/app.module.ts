@@ -12,6 +12,9 @@ import { ContentComponent } from './content/content.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HttpClientModule } from '@angular/common/http';
+
+import { GrabberService } from './grabber.service';
 
 @NgModule({
   declarations: [AppComponent, HomepageComponent, ContentComponent],
@@ -22,6 +25,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FontAwesomeModule,
     ClipboardModule,
     MatTooltipModule,
+    HttpClientModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],

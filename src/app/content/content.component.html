@@ -4,7 +4,7 @@
   </div>
   <div
     class="div-button"
-    matTooltip="{{ findPostByTitle(post_title).date }}"
+    matTooltip="{{ findPostByTitle(post_title)[0] }}"
     #tooltip="matTooltip"
     [matTooltipPosition]="'before'"
     (click)="tooltip.show()"
@@ -21,7 +21,7 @@
   >
     <div class="button">
       <fa-icon class="icon" [icon]="faShareNodes"></fa-icon>
-      <p [ngStyle]="{opacity: (copied ? 1 : 0)}">Link copied!</p>
+      <p [ngStyle]="{ opacity: copied ? 1 : 0 }">Link copied!</p>
     </div>
   </div>
   <div class="div-button" routerLink="">
@@ -32,5 +32,5 @@
 </div>
 <div
   class="div-post-content"
-  [innerHtml]="TEXTS[findPostByTitle(post_title).id]"
+  [innerHtml]="findPostByTitle(post_title)[3]"
 ></div>

@@ -22,11 +22,11 @@
   <div
     *ngFor="let post of POSTS.slice(1)"
     [routerLink]="['/post']"
-    [queryParams]="{ title: make_url(post.name) }"
+    [queryParams]="{ title: make_url(post[1]) }"
     class="div-post"
   >
-    <div class="date">{{ post.date }}</div>
-    <div class="name">{{ post.name }}</div>
-    <div class="tags">{{ make_taglist(post.tags) }}</div>
+    <div class="date">{{ post[0] }}</div>
+    <div class="name">{{ post[1] }}</div>
+    <div class="tags">{{ make_taglist(post[2]) }}</div>
   </div>
 </div>
