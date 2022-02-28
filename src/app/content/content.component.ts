@@ -8,8 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { ClipboardService } from 'ngx-clipboard';
 import { Router } from '@angular/router';
-
-import { HttpClient } from '@angular/common/http';
+import { GrabberService } from '../grabber.service';
 
 @Component({
   selector: 'app-content',
@@ -22,7 +21,7 @@ export class ContentComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private clipboardApi: ClipboardService,
-    private http: HttpClient
+    private gs: GrabberService
   ) {}
 
   copied: boolean = false;
@@ -38,30 +37,8 @@ export class ContentComponent implements OnInit {
   POST: string[] = ["...", "Loading...", "...", ""];
 
   ngOnInit(): void {
-    this.scrape();
-  }
-
-  async copyLink(): Promise<void> {
-    this.copied = true;
-    this.clipboardApi.copyFromContent('blog.berkefiliz.com/#' + this.router.url);
-    await new Promise((f) => setTimeout(f, 2000));
-    this.copied = false;
-  }
-
-  // Sheets
-  DATA: any = [];
-  key: string = 'AIzaSyCsEGooDtecE6HPO1DEYkOM64RjOwAEhnc';
-  doc: string = '1qrjyOGaC_g5yykFi9kGYoh0gTaQO4KNQ2zBLxtwOj-g';
-  sht: string = 'Posts';
-  rng: string = 'A:D';
-
-  async scrape() {
-    this.http
-      .get<any>(
-        `https://sheets.googleapis.com/v4/spreadsheets/${this.doc}/values/${this.sht}!${this.rng}?key=${this.key}`
-      )
-      .subscribe((data) => {
-        let POSTS = data.values;
+    this.gs.getData().subscribe(d => {
+      let POSTS = d.values;
         this.route.queryParams.subscribe((params) => {
           if (params['title']) {
             let title = params['title'].split("_").join(" ")
@@ -73,6 +50,13 @@ export class ContentComponent implements OnInit {
             // Page not found
           }
         });
-      });
+    })
+  }
+
+  async copyLink(): Promise<void> {
+    this.copied = true;
+    this.clipboardApi.copyFromContent('blog.berkefiliz.com/#' + this.router.url);
+    await new Promise((f) => setTimeout(f, 2000));
+    this.copied = false;
   }
 }

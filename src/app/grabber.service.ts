@@ -19,25 +19,15 @@ export class GrabberService implements OnInit {
   sht: string = 'Posts';
   rng: string = 'A:D';
 
-  scrape() {
-    this.http
+  scrape(): Observable<any> {
+    this.DATA = this.http
       .get<any>(
         `https://sheets.googleapis.com/v4/spreadsheets/${this.doc}/values/${this.sht}!${this.rng}?key=${this.key}`
       )
-      .subscribe((data) => {
-        this.DATA = data.values;
-      });
+    return this.DATA
   }
 
-  getData(): Observable<any> | any {
-    setTimeout(() => {
-      console.log("hey")
-      if (this.DATA != []) {
-        const value = of(this.DATA);
-        return value;
-      } else {
-        return this.getData()
-      }
-    }, 1000);
+  getData(): Observable<any> {
+    return this.DATA
   }
 }
