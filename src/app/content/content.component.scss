@@ -20,11 +20,12 @@
   }
   .div-button {
     height: 100%;
-    width: 40px;
+    width: 30px;
     padding-top: 2px;
     display: flex;
     flex-direction: row;
     text-align: right;
+    padding: 0 0 0 8px;
     cursor: pointer;
     .icon {
       color: #a8a095;
@@ -34,10 +35,11 @@
     p {
       position: absolute;
       font-size: 12px;
-      margin-top: -9px;
+      margin-top: 6px;
       margin-left: -22px;
       color: #666;
       transition: opacity 0.2s ease-in-out;
+      line-height: 0;
     }
   }
   .div-button:hover {
