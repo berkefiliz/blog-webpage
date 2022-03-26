@@ -123,19 +123,21 @@ p {
     }
   }
 
-  .div-post,
-  .div-post-title {
-    .tags {
-      display: none;
-    }
-  }
-
   #div-main {
     padding: 10px 0;
   }
 
   .div-featured:hover {
     background-color: #222426bb;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .div-post,
+  .div-post-title {
+    .tags {
+      display: none;
+    }
   }
 }
 
