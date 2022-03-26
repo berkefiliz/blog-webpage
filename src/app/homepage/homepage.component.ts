@@ -47,7 +47,7 @@ export class HomepageComponent implements OnInit {
     if (this.POSTS.length < 1) {
       return [];
     }
-    return this.POSTS.filter((post) => lang.indexOf(post[2].slice(-2)) > -1).filter((post) => typ.indexOf(post[2].slice(0,-3)) > -1);
+    return this.POSTS.filter((post) => lang.indexOf(post[2].slice(-2)) > -1 && typ.indexOf(post[2].slice(0,-3)) > -1);
   }
 
   make_url(input: string): string {
