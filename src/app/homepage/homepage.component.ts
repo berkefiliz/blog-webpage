@@ -17,7 +17,7 @@ export class HomepageComponent implements OnInit {
 
   LANGUAGES: string[] = ['EN', 'TR'];
   f_language = new FormControl();
-  TYPES: string[] = ['discussion', 'story', 'poem'];
+  TYPES: string[] = ['story', 'poem', 'rant'];
   f_type = new FormControl();
 
   ngOnInit(): void {
@@ -47,7 +47,11 @@ export class HomepageComponent implements OnInit {
     if (this.POSTS.length < 1) {
       return [];
     }
-    return this.POSTS.filter((post) => lang.indexOf(post[2].slice(-2)) > -1 && typ.indexOf(post[2].slice(0,-3)) > -1);
+    return this.POSTS.filter(
+      (post) =>
+        lang.indexOf(post[2].slice(-2)) > -1 &&
+        typ.indexOf(post[2].slice(0, -3)) > -1
+    );
   }
 
   make_url(input: string): string {
