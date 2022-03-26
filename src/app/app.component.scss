@@ -4,6 +4,28 @@
   padding: 0px;
 }
 
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #a8a095 !important;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #6f74ff !important;
+}
+::ng-deep .mat-form-field-label {
+  color: #a8a095 !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #6f74ff !important;
+}
+::ng-deep .mat-select-value-text {
+  color: #a8a095 !important;
+}
+::ng-deep .mat-select-arrow-wrapper .mat-select-arrow {
+  color: #a8a095 !important;
+}
+
+
+
 p {
   color: #c8c3bc;
   font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
@@ -33,7 +55,6 @@ p {
   display: flex;
   flex-direction: row;
   line-height: 30px;
-  cursor: pointer;
   h1 {
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
       sans-serif;

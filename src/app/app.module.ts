@@ -14,15 +14,14 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { GrabberService } from './grabber.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomepageComponent,
-    ContentComponent,
-  ],
+  declarations: [AppComponent, HomepageComponent, ContentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,6 +31,10 @@ import { GrabberService } from './grabber.service';
     MatTooltipModule,
     HttpClientModule,
     MatProgressBarModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],

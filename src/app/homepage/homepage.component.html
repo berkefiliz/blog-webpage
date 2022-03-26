@@ -1,13 +1,33 @@
-<div class="div-featured" (click)="refreshPage()">
+<div class="div-featured">
   <div class="left">
-    <h1>Welcome</h1>
-    <p>
-      The blog is under construction! Please report any issues that you find!
-    </p>
+    <h1>Berke's Blog</h1>
+
+    <mat-form-field appearance="outline" style="width: 120px !important">
+      <mat-label>Language</mat-label>
+      <mat-select [formControl]="f_language" multiple>
+        <mat-option
+          *ngFor="let lang of LANGUAGES"
+          [value]="lang"
+          (click)="saveFilters()"
+          >{{ lang }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <span style="margin:10px;"></span>
+    <mat-form-field appearance="outline" style="width: 200px !important">
+      <mat-label>Type</mat-label>
+      <mat-select [formControl]="f_type" multiple>
+        <mat-option
+          *ngFor="let type of TYPES"
+          [value]="type"
+          (click)="saveFilters()"
+          >{{ type }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
   </div>
-  <div class="right">
-    <p> <fa-icon class="icon" [icon]="faRefresh"></fa-icon></p>
-  </div>
+  <div class="right"></div>
 </div>
 <br />
 <div class="div-posts-title">
@@ -18,13 +38,14 @@
   </div>
 </div>
 <div class="div-posts">
-  <mat-progress-bar 
+  <mat-progress-bar
     mode="indeterminate"
     *ngIf="POSTS.length < 1"
-    style="width: 100%;">
+    style="width: 100%"
+  >
   </mat-progress-bar>
   <div
-    *ngFor="let post of POSTS.slice(1)"
+    *ngFor="let post of filterPosts()"
     [routerLink]="['/post']"
     [queryParams]="{ title: make_url(post[1]) }"
     class="div-post"
