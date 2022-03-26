@@ -52,7 +52,7 @@
 .div-post-content {
   padding: 40px;
   background-color: #1b1d1e;
-  height: 60vh;
+  height: calc(100vh - 260px);
   overflow-y: auto;
   
   h1 {
@@ -120,10 +120,14 @@ a {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), screen and (max-height: 900px) {
   .div-content-header {
     background-color: #222426;
-    padding: 40px 40px 20px 40px;
+    padding: 20px 40px 0px 40px;
+    margin-top: -10px;
   }
 
+  .div-post-content {
+    height: calc(100vh - 157px);
+  }
 }

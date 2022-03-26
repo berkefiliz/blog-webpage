@@ -16,7 +16,6 @@ p {
   padding: 28px 50px;
   transition: padding 0.2s ease-in-out;
   height: calc(100vh - 100px);
-  overflow-y: hidden;
 }
 
 .div-spacer {
@@ -26,17 +25,6 @@ p {
 #div-content {
   width: 800px;
   height: 50px;
-}
-
-#div-header {
-  transition: all 0.1s ease-in-out;
-  h1 {
-    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
-      sans-serif;
-    font-size: 30px;
-    color: #c8c3bc;
-    padding-bottom: 16px;
-  }
 }
 
 .div-featured {
@@ -122,8 +110,9 @@ p {
   overflow-y: auto;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), screen and (max-height: 900px) {
   .div-featured {
+    margin-top: -10px;
     .right {
       display: none;
     }
@@ -143,16 +132,6 @@ p {
 
   #div-main {
     padding: 10px 0;
-  }
-
-  #div-header {
-    padding-left: 40px;
-    padding-top: 4px;
-    h1 {
-      text-transform: uppercase;
-      font-size: 20px;
-      padding: 0;
-    }
   }
 
   .div-featured:hover {
